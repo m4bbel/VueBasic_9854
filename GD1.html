@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{judul }}</h1> <!-- Pemanggilan Judul menggunakan '{{ }}}'-->
+
+        <p>{{ belajar('Vue JS') }}</p>
+
+        <p>
+            Klik link untuk Mengakses
+            <a v-bind:href="link"> <!-- bisa v-bind:href atau :href-->
+                Dokumentasi Vue JS
+            </a>
+        </p>
+        <div>
+            <input v-model="teks" placeholder="tulis siswanto..."/>
+            <h2>{{teks}}</h2>
+        </div>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            judul: "Hello world", //deklarasi judul
+            link: "https://vuejs.org/v2/guide/", //link href
+            teks: "",
+        },
+        methods: {
+            belajar(pelajaran){
+                return `Aku sedang belajar ${pelajaran}`;
+            },
+        },
+    });
+</script>
+</html>
